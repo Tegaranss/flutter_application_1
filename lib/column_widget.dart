@@ -11,7 +11,7 @@ class ColumnWidget extends StatelessWidget {
       ),
       body: Column(
         children: const [
-          Text("HERAN HERAN HERAN HERAN HERAN HERAN HERAN HERAN HERAN HERAN"),
+          Text("Kolom 1"),
           Text("Kolom 2"),
           Text("Kolom 3"),
           Text("Kolom 4")

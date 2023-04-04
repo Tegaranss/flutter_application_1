@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'kolom_baris.dart';
+import 'package:flutter_application_1/ui/home.dart';
+import '/ui/poli_page.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Kllinik',
-      home: KolomBaris2(),
+    return MaterialApp(
+      title: 'Klinik APP',
+      debugShowCheckedModeBanner: false,
+      home: Home(),
     );
   }
 }
