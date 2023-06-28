@@ -1,21 +1,29 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'model/produk.dart';
 
 class ServisAPI {
-  //lokasi api json file
-  static const String _baseUrl =
-      'https://4c0b-114-10-19-255.ngrok-free.app/api/';
+  //Lokasi api json file
+  static const String baseUrl =
+      'https://8880-103-164-115-58.ngrok-free.app/api';
+  Future<List<Produk>> fetchProduk() async {
+    final response = await http.get(Uri.parse('$baseUrl/produk'));
 
-  //untuk mengambil value yg adanya nanti, (terhalang jaringan, load time /saat ini value blm ada)maka pakai future
-  Future<List<dynamic>> fetchPosts() async {
-    final response = await http.get(Uri.parse('$_baseUrl/photos'));
-
-    //karena menggunakan http, maka kita tangkap saja statuscode dari http- nya
     if (response.statusCode == 200) {
-      return jsonDecode(response.body);
+      final jsonList = jsonDecode(response.body) as List<dynamic>;
+      final produkList = jsonList.map((json) => Produk.fromJson(json)).toList();
+      return produkList;
     } else {
-      throw Exception('Gagal Load');
+      throw Exception('Failed to fetch produk');
+    }
+  }
+
+  Future<void> deleteProduk(int id) async {
+    final response = await http.delete(Uri.parse('$baseUrl/produk/$id'));
+
+    if (response.statusCode != 200 && response.statusCode != 204) {
+      throw Exception('Failed to delete produk');
     }
   }
 }

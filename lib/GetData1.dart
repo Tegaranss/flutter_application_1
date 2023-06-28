@@ -30,7 +30,7 @@ class _PostListState extends State<PostList> {
     super.initState();
 
     //inisiasi variabel _posts yang merupakan pemanggilan fungsi'fetchPosts() di class servisapi()
-    _posts = ServisAPI().fetchPosts();
+    _posts = ServisAPI().fetchProduk();
   }
 
   @override

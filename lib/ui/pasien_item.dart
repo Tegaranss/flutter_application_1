@@ -11,14 +11,14 @@ class ItemPasien extends StatelessWidget {
     return GestureDetector(
       child: Card(
         child: ListTile(
-          title: Text("${pasien.Nama}"),
+          title: Text("${pasien.namaPasien}"),
         ),
       ),
       onTap: () {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => DetailPasien(pasien: pasien)));
+                builder: (context) => PasienDetail(pasien: pasien)));
       },
     );
   }
